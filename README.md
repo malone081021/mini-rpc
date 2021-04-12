@@ -70,11 +70,21 @@ public interface ServiceLoadBalancer<T> {
 - 项目依赖管理工具：Maven 3.5.4
 - 注册中心：Zookeeeper 3.4.14，需要特别注意 Zookeeeper 和 Apache Curator 一定要搭配使用，Zookeeper 3.4.x 版本，Apache Curator 只有 2.x.x 才能支持
 
+> zk 最好同版本; zk 错误调试 cmd文件中增加pause指令; 
+
+## 端口绑定失败处理
+
+`netstat -aon|findstr "8080"` 
+
+`taskkill -PID 812 -F`
+
 ## 项目测试
 
 - 启动 Zookeeper 服务器：zkServer start
 - 启动 rpc-provider 模块 RpcProviderApplication
 - 启动 rpc-consumer 模块 RpcConsumerApplication
 - 测试：浏览器输入 http://localhost:8080/hello，成功返回 hellomini rpc
+
+> 修改默认8080端口，和zk冲突
 
 
